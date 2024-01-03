@@ -7,7 +7,7 @@ Este script en Python utiliza la biblioteca Boto3 para enviar correos electróni
 Antes de ejecutar este script, asegúrate de tener instaladas las bibliotecas necesarias. Puedes instalarlas usando el siguiente comando:
 
 ```bash
-	pip install boto3
+pip install boto3
 ```
 
 ## Configuración
