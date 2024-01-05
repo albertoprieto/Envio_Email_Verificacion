@@ -1,5 +1,5 @@
 # EnviaEmail Script
-https://github.com/albertoprieto/Envio_Email_Verificacion/actions/workflows/python-app.yml/badge.svg
+![Tests](https://github.com/albertoprieto/Envio_Email_Verificacion/actions/workflows/python-app.yml/badge.svg)
 
 Este script en Python utiliza la biblioteca Boto3 para enviar correos electrónicos a través de Amazon SES (Simple Email Service). El script crea un objeto de la clase `EnviaEmail` para enviar un correo de prueba a una dirección específica.
 
