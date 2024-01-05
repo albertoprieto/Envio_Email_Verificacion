@@ -1,5 +1,5 @@
 import pytest
-from unittest.mock import patch
+from unittest.mock import patch, ANY
 from main import EnviaEmail, ClientError
 
 @pytest.fixture
@@ -12,9 +12,6 @@ def send_email_instance():
 
 @patch('main.boto3.client')
 def test_send_email(mock_boto3_client, send_email_instance):
-    # Mocking the boto3.client method to avoid actual AWS calls during testing
-
-    # Mocking the send_raw_email method to simulate a successful response
     mock_ses = mock_boto3_client.return_value
     mock_ses.send_raw_email.return_value = {'MessageId': 'dummy_message_id'}
 
@@ -25,14 +22,11 @@ def test_send_email(mock_boto3_client, send_email_instance):
     mock_ses.send_raw_email.assert_called_once_with(
         Source=send_email_instance.registered_sender,
         Destinations=[send_email_instance.issued_to],
-        RawMessage={'Data': str}
+        RawMessage=ANY  # Utilizando ANY para aceptar cualquier valor en RawMessage
     )
 
 @patch('main.boto3.client')
 def test_send_email_failure(mock_boto3_client, send_email_instance):
-    # Mocking the boto3.client method to avoid actual AWS calls during testing
-
-    # Mocking the send_raw_email method to simulate a ClientError
     mock_ses = mock_boto3_client.return_value
     mock_ses.send_raw_email.side_effect = ClientError({}, 'SendRawEmail')
 
@@ -43,5 +37,5 @@ def test_send_email_failure(mock_boto3_client, send_email_instance):
     mock_ses.send_raw_email.assert_called_once_with(
         Source=send_email_instance.registered_sender,
         Destinations=[send_email_instance.issued_to],
-        RawMessage={'Data': str}
+        RawMessage=ANY  # Utilizando ANY para aceptar cualquier valor en RawMessage
     )

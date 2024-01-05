@@ -1,0 +1,4 @@
+jose.prieto@michel.com.mx|{'MessageId': 'dummy_message_id'}
+jose.prieto@michel.com.mx|An error occurred (Unknown) when calling the SendRawEmail operation: Unknown
+jose.prieto@michel.com.mx|{'MessageId': 'dummy_message_id'}
+jose.prieto@michel.com.mx|An error occurred (Unknown) when calling the SendRawEmail operation: Unknown
