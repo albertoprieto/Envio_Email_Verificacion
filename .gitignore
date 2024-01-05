@@ -1,3 +1,4 @@
 # Ignorar archivos .pyc y el directorio __pycache__
 *.pyc
 __pycache__/
+respuestas_envio.txt
