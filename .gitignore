@@ -1,4 +1,7 @@
-# Ignorar archivos .pyc y el directorio __pycache__
+# Ignorar archivos .pyc, el directorio __pycache__ y los .txt
 *.pyc
 __pycache__/
 respuestas_envio.txt
+email_log.txt
+email_config.txt
+email_body.txt
