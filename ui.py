@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import filedialog
 from tkinter import messagebox
+import main
 
 class EmailGUI:
     def __init__(self, master):
@@ -58,15 +59,15 @@ class EmailGUI:
         config_file_path = self.config_file_path.get()
 
         try:
-            ses_client = SendEmail(region_name='your_aws_region')
-            body = SendEmail.read_body(body_file_path)
+            ses_client = EnviaEmail(region_name='your_aws_region')
+            body = EnviaEmail.read_body(body_file_path)
 
             if config_file_path:
-                config = SendEmail.read_config(config_file_path)
+                config = EnviaEmail.read_config(config_file_path)
                 sender = config.get('sender', sender)
                 recipient = config.get('recipient', recipient)
                 subject = config.get('subject', subject)
-                body = SendEmail.read_body(config.get('body_file', ''))
+                body = EnviaEmail.read_body(config.get('body_file', ''))
 
             ses_client.send_email(sender, recipient, subject, body)
             messagebox.showinfo("Success", "Email sent successfully!")
