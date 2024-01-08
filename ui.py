@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import filedialog
 from tkinter import messagebox
-import main
+from main import EnviaEmail
 
 class EmailGUI:
     def __init__(self, master):
